@@ -2,7 +2,7 @@
 
 ## 📖 About This Project
 
-This is my personal AI & Semiconductor blog where I document my learning journey. I cover topics related to AI development, AI investing, semiconductors, and the intersection of these fields. The blog serves as a structured way to learn, share insights, and build an online presence around these topics.
+This blog documents my journey in learning AI, focusing on development and its intersection with semiconductors. I share insights, technical concepts, projects and key takeaways as I progress.
 
 ## 🛠️ Tech Stack
 
