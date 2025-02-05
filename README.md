@@ -1,4 +1,4 @@
-# AI & Semiconductor Blog – README
+# AI Blog
 
 ## 📖 About This Project
 
