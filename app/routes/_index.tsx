@@ -13,9 +13,9 @@ const Home = () => {
         <Button variant="outline" asChild>
           <Link to="/blogs">Blogs</Link>
         </Button>
-        <Button variant="outline" asChild>
+        {/* <Button variant="outline" asChild>
           <Link to="/projects">Projects</Link>
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
