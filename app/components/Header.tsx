@@ -18,7 +18,9 @@ const Header = () => {
       <div className="container mx-auto flex h-16 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link to="/blogs" className="flex items-center space-x-2">
           <Binary />
-          <span className="text-xl font-bold text-primary">AI Centre</span>
+          <span className="text-md font-bold tracking-tighter text-primary md:text-xl">
+            AI Centre
+          </span>
         </Link>
         <div className="flex items-center gap-4">
           <div className="relative w-64">
