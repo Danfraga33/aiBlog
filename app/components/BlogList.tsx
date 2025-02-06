@@ -11,7 +11,6 @@ import { Button } from "./ui/button";
 import { Article, GroupTypes } from "~/lib/types";
 
 const BlogList = ({ blogPosts }: { blogPosts: Article[] }) => {
-  console.log("blogPosts: ", blogPosts);
   const [activeItem, setActiveItem] = useState(
     blogPosts[0].frontmatter.title.toLowerCase(),
   );
@@ -30,7 +29,6 @@ const BlogList = ({ blogPosts }: { blogPosts: Article[] }) => {
     },
     { root: [], parents: [] },
   );
-  console.log("groupedPosts: ", groupedPosts);
 
   const looseChildren: Article[] = groupedPosts.root.filter(
     (post) => !post.frontmatter.parent,
