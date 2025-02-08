@@ -9,7 +9,6 @@ import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 import Header from "./components/Header";
-import Article from "./components/Article";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/app/tailwind.css" },
