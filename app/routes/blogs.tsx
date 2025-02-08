@@ -41,8 +41,15 @@ export async function loader() {
         .update(filename + frontmatter.title + frontmatter.date)
         .digest("hex");
 
-      const date = new Date();
-      const formattedDate = date.toISOString().split("T")[0];
+        let publishedDate = frontmatter.date;
+
+        if (!publishedDate) {
+          publishedDate = new Date().toISOString().split("T")[0];
+    
+          const updatedFrontmatter = { ...frontmatter, date: publishedDate };
+          const updatedContent = matter.stringify(content, updatedFrontmatter);
+          fs.writeFileSync(filePath, updatedContent, "utf8");
+        }
       return {
         headings,
         estimatedReadingTime,
@@ -50,7 +57,7 @@ export async function loader() {
         frontmatter: {
           ...frontmatter,
           id,
-          datePosted: formattedDate,
+          datePosted: publishedDate,
         },
       };
     }),
