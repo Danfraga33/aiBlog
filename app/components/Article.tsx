@@ -1,5 +1,3 @@
-import { useLoaderData } from "@remix-run/react";
-
 const Article = () => {
   return (
     <>
