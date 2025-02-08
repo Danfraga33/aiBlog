@@ -7,11 +7,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import tsconfigPaths from "vite-tsconfig-paths";
 import mdx from "@mdx-js/rollup";
+import remarkMath from "remark-math";
 
 export default defineConfig({
   plugins: [
     mdx({
-      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkMath],
       rehypePlugins: [
         rehypeSlug,
         [rehypeAutolinkHeadings, { behavior: "wrap" }],

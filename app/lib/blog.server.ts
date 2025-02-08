@@ -20,11 +20,16 @@ export const getPosts = () => {
       .createHash("md5")
       .update(filename + frontmatter.title + frontmatter.date)
       .digest("hex");
+
+    const date = new Date();
+    const formattedDate = date.toISOString().split("T")[0];
+
     return {
       slug,
       frontmatter: {
         ...frontmatter,
         id,
+        datePosted: formattedDate,
       },
     };
   });
