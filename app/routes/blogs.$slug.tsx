@@ -10,12 +10,10 @@ import { extractHeadings } from "~/lib/utils";
 import * as components from "~/components/mdx-components";
 import rehypeSlug from "rehype-slug";
 import remarkMath from "remark-math";
-import remarkRehype from "remark-rehype";
 import remarkGfm from "remark-gfm";
 import rehypeMathjax from "rehype-mathjax";
 import rehypePrism from "rehype-prism-plus";
 import remarkDirective from "remark-directive";
-import remarkOembed from "remark-oembed";
 import rehypeFormat from "rehype-format";
 
 export async function loader({ params }: { params: { slug: string } }) {
@@ -41,7 +39,6 @@ export async function loader({ params }: { params: { slug: string } }) {
         remarkMath,
         remarkGfm,
         remarkDirective,
-        remarkOembed,
       ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
