@@ -21,7 +21,7 @@ const BlogList = ({ blogPosts }: { blogPosts: Article[] }) => {
 
   const groupedPosts: GroupTypes = blogPosts.reduce(
     (acc, post) => {
-      const isParent = parentSlugs.has(post.slug); // Check if this post is a parent
+      const isParent = parentSlugs.has(post.slug);
       const groupKey = isParent ? "parents" : "root";
       if (!acc[groupKey]) acc[groupKey] = [];
       acc[groupKey].push(post);
@@ -65,6 +65,7 @@ const BlogList = ({ blogPosts }: { blogPosts: Article[] }) => {
                     }
                     asChild
                     className="h-auto w-full justify-between whitespace-normal font-normal hover:no-underline"
+                    asChild
                   >
                     <AccordionTrigger>
                       {parentPost.frontmatter.title}
