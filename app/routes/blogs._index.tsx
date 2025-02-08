@@ -33,7 +33,6 @@ export async function loader() {
       const estimatedReadingTime = Math.ceil(
         content.split(/\s+/).length / 2000,
       );
-      asd;
 
       const id = crypto
         .createHash("md5")
