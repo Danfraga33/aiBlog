@@ -6,6 +6,7 @@ import crypto from "crypto";
 import matter from "gray-matter";
 import TOC from "~/components/TOC";
 import { extractHeadings } from "~/lib/utils";
+import { Article } from "~/lib/types";
 
 type Frontmatter = {
   title: string;
@@ -64,7 +65,7 @@ export async function loader() {
 }
 
 export default function BlogLayout() {
-  const blogPosts = useLoaderData();
+  const blogPosts: Article[] = useLoaderData();
 
   return (
     <div className="container mx-auto flex-1 px-4 sm:px-6 lg:px-8">
