@@ -39,6 +39,9 @@ export async function loader() {
         .createHash("md5")
         .update(filename + frontmatter.title + frontmatter.date)
         .digest("hex");
+
+      const date = new Date();
+      const formattedDate = date.toISOString().split("T")[0];
       return {
         headings,
         estimatedReadingTime,
@@ -46,6 +49,7 @@ export async function loader() {
         frontmatter: {
           ...frontmatter,
           id,
+          datePosted: formattedDate,
         },
       };
     }),
@@ -58,6 +62,7 @@ export async function loader() {
   );
   return sortedPosts;
 }
+
 export default function BlogLayout() {
   const blogPosts = useLoaderData();
 
