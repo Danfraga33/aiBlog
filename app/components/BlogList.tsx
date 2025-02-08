@@ -63,7 +63,6 @@ const BlogList = ({ blogPosts }: { blogPosts: Article[] }) => {
                     variant={
                       activeItem === parentPost.slug ? "outline" : "ghost"
                     }
-                    asChild
                     className="h-auto w-full justify-between whitespace-normal font-normal hover:no-underline"
                     asChild
                   >
