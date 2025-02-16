@@ -54,41 +54,38 @@ const BlogList = ({ blogPosts }: { blogPosts: Article[] }) => {
       {groupedPosts["parents"].map((parentPost) => (
         <Accordion key={parentPost.slug} type="single" collapsible>
           <AccordionItem value={parentPost.slug} className="border-none">
-            {blogPosts
-              .filter((post) => post.frontmatter.parent === parentPost.slug)
-              .map((childPost) => (
-                <Fragment key={childPost.slug}>
+            <Button
+              onClick={() => setActiveItem(parentPost.slug)}
+              variant={activeItem === parentPost.slug ? "outline" : "ghost"}
+              className="h-auto w-full justify-between whitespace-normal font-normal hover:no-underline"
+              asChild
+            >
+              <AccordionTrigger>
+                {parentPost.frontmatter.title}
+              </AccordionTrigger>
+            </Button>
+            <AccordionContent className="my-1 ml-4">
+              {blogPosts
+                .filter((post) => post.frontmatter.parent === parentPost.slug)
+                .map((childPost) => (
                   <Button
-                    onClick={() => setActiveItem(parentPost.slug)}
+                    key={childPost.slug}
+                    onClick={() => setActiveItem(childPost.slug)}
                     variant={
-                      activeItem === parentPost.slug ? "outline" : "ghost"
+                      activeItem === childPost.slug ? "outline" : "ghost"
                     }
-                    className="h-auto w-full justify-between whitespace-normal font-normal hover:no-underline"
                     asChild
+                    className="flex w-full justify-start"
                   >
-                    <AccordionTrigger>
-                      {parentPost.frontmatter.title}
-                    </AccordionTrigger>
-                  </Button>
-                  <AccordionContent className="my-1 ml-4">
-                    <Button
-                      onClick={() => setActiveItem(childPost.slug)}
-                      variant={
-                        activeItem === childPost.slug ? "outline" : "ghost"
-                      }
-                      asChild
-                      className="flex w-full justify-start"
+                    <Link
+                      to={`/blogs/${childPost.slug}`}
+                      className="inline-flex h-auto items-start justify-start rounded-md text-sm hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     >
-                      <Link
-                        to={`/blogs/${childPost.slug}`}
-                        className="inline-flex h-auto items-start justify-start rounded-md text-sm hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                      >
-                        {childPost.frontmatter.title}
-                      </Link>
-                    </Button>
-                  </AccordionContent>
-                </Fragment>
-              ))}
+                      {childPost.frontmatter.title}
+                    </Link>
+                  </Button>
+                ))}
+            </AccordionContent>
           </AccordionItem>
         </Accordion>
       ))}
