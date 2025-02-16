@@ -51,19 +51,43 @@ export async function loader({ params }: { params: { slug: string } }) {
     },
   });
 
+  let publishedDate = frontmatter.date;
+
+  if (!publishedDate) {
+    publishedDate = new Date().toISOString().split("T")[0];
+
+    const updatedFrontmatter = { ...frontmatter, date: publishedDate };
+    const updatedContent = matter.stringify(content, updatedFrontmatter);
+    fs.writeFileSync(filePath, updatedContent, "utf8");
+  }
+
   const estimatedReadingTime = Math.ceil(content.split(/\s+/).length / 200);
 
-  return json({ uniqueHeadings, estimatedReadingTime, code, frontmatter });
+  return json({
+    uniqueHeadings,
+    estimatedReadingTime,
+    code,
+    date: publishedDate,
+    frontmatter,
+  });
 }
 
 const Dynamic = () => {
-  const { code, estimatedReadingTime } = useLoaderData<typeof loader>();
+  const { code, estimatedReadingTime, date } = useLoaderData<typeof loader>();
 
-  function translateEstimatedReadingTime(readingTime: number) {
+  function translateEstimatedReadingTime(readingTime: number, date: string) {
+    let dateObject = new Date(date);
+
     return (
-      <p className="mb-8 text-sm text-muted-foreground">
-        Estimated Reading Time:{" "}
-        <span className="font-bold">{readingTime} minutes</span>
+      <p className="mb-8 flex flex-col text-sm text-muted-foreground">
+        <div>
+          Estimated Reading Time:
+          <span className="font-bold"> {readingTime} minutes</span>
+        </div>
+        <div>
+          Published Date:
+          <span className="font-bold"> {dateObject.toDateString()}</span>
+        </div>
       </p>
     );
   }
@@ -72,7 +96,9 @@ const Dynamic = () => {
 
   return (
     <div className="prose mx-auto">
-      <span>{translateEstimatedReadingTime(estimatedReadingTime)}</span>
+      <div className="leading-3">
+        <span>{translateEstimatedReadingTime(estimatedReadingTime, date)}</span>
+      </div>
       <Component code={code} components={components} />
     </div>
   );
