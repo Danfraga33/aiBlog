@@ -41,15 +41,15 @@ export async function loader() {
         .update(filename + frontmatter.title + frontmatter.date)
         .digest("hex");
 
-        let publishedDate = frontmatter.date;
+      let publishedDate = frontmatter.date;
 
-        if (!publishedDate) {
-          publishedDate = new Date().toISOString().split("T")[0];
-    
-          const updatedFrontmatter = { ...frontmatter, date: publishedDate };
-          const updatedContent = matter.stringify(content, updatedFrontmatter);
-          fs.writeFileSync(filePath, updatedContent, "utf8");
-        }
+      if (!publishedDate) {
+        publishedDate = new Date().toISOString().split("T")[0];
+
+        const updatedFrontmatter = { ...frontmatter, date: publishedDate };
+        const updatedContent = matter.stringify(content, updatedFrontmatter);
+        fs.writeFileSync(filePath, updatedContent, "utf8");
+      }
       return {
         headings,
         estimatedReadingTime,
