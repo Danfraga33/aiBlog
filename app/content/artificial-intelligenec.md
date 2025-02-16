@@ -1,5 +1,6 @@
 ---
 title: Artificial Intelligence Basics
+date: "2025-02-01"
 ---
 
 # Artificial Intelligence Basics: Understanding Linear Regression and Classification

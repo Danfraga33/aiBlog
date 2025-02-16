@@ -1,6 +1,7 @@
 ---
 title: Supervised Learning
 slug: supervised-learning
+date: '2025-02-16'
 ---
 
 ## 🎯 What is Supervised Learning?

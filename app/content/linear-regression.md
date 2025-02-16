@@ -1,6 +1,7 @@
 ---
 title: Linear Regression
 parent: supervised-learning
+date: "2025-02-09"
 ---
 
 # Understanding Linear Regression: A Beginner’s Perspective
