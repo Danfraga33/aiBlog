@@ -1,7 +1,7 @@
 ---
 title: Overfitting & Underfitting
 parent: supervised-learning
-date: "2025-02-16"
+date: "2025-02-26"
 ---
 
 # Overfitting and Underfitting: A Comprehensive Guide
