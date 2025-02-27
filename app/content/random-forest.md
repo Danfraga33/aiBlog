@@ -1,7 +1,6 @@
 ---
 title: Random Forest
 parent: supervised-learning
-date: '2025-02-27'
 ---
 
 # Random Forests: Striking the Balance Between Underfitting and Overfitting
