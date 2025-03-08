@@ -33,7 +33,7 @@ export const meta: MetaFunction = () => {
     },
     {
       name: "description",
-      content: "This app is the best",
+      content: "Blog documenting my AI learning journey",
     },
   ];
 };
