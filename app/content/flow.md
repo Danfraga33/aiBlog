@@ -16,7 +16,7 @@ In machine learning, **fitting** a model means training it to recognize patterns
 
 ---
 
-## 2. Step 1: Prepare Your Dataset
+## Step 1: Prepare Your Dataset
 
 ### **Load and Inspect Data**
 
@@ -36,7 +36,7 @@ print(data.isnull().sum())
 
 ---
 
-## 3. Step 2: Fit the Model
+## Step 2: Fit the Model
 
 ### **Define Features (X) and Target (y)**
 
@@ -61,7 +61,7 @@ model.fit(X, y)  # Fit the model to the data
 if SquareFeet > 2000 and Bedrooms == 3 → predict $420,000
 ```
 
-## 4. Step 3: Make Predictions
+## Step 3: Make Predictions
 
 ### Generate Price Estimates
 
@@ -80,7 +80,7 @@ mae = mean_absolute_error(y, train_predictions)
 print(f"Training Error: ${mae:.2f}")
 ```
 
-## 5. Step 4: Validate and Improve
+## Step 4: Validate and Improve
 
 ### **Avoid Overfitting with a Validation Set**
 
